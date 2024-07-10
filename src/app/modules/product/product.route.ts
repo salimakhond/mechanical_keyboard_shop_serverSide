@@ -12,4 +12,7 @@ router.post(
   ProductControllers.createProduct,
 );
 
+// Get Product Route
+router.get('/', ProductControllers.getAllProduct);
+
 export const ProductRoute = router;
