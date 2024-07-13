@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 import { TProduct } from './product.interface';
 
-const productSchema = new Schema<TProduct>({
+export const productSchema = new Schema<TProduct>({
   image: {
     type: String,
     required: [true, 'Image is required'],

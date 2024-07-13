@@ -43,7 +43,37 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
+// Get Single Service
+const getSingleProductFromDB = async (ProductID: string) => {
+  const result = await Product.findById(ProductID);
+  return result;
+};
+
+// Update Product Service
+const updateProductIntoDB = async (
+  productId: string,
+  product: Partial<TProduct>,
+) => {
+  const result = await Product.findByIdAndUpdate(
+    productId,
+    { $set: product },
+    {
+      new: true,
+    },
+  );
+  return result;
+};
+
+// Delete Product Service
+const deleteProductFromDB = async (productId: string) => {
+  const result = await Product.findByIdAndDelete(productId);
+  return result;
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getAllProductFromDB,
+  getSingleProductFromDB,
+  updateProductIntoDB,
+  deleteProductFromDB,
 };
