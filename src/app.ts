@@ -7,7 +7,14 @@ import notFound from './app/middlewares/notFound';
 const app: Application = express();
 
 // parser
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(
+  cors({
+    origin: 'https://mechanical-keyboard-shop-client-side.vercel.app',
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // application routes
